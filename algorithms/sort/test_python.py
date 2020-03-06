@@ -7,9 +7,9 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from random import randint
 
 # Import the sorting algorithms
-from bubble_sort    import bubble
-from selection_sort import selection
-from insertion_sort import insertion
+from bubble_sort    import bubble_sort
+from selection_sort import selection_sort
+from insertion_sort import insertion_sort
 
 def test_data():
     """ Generates a sample of random numbers
@@ -46,9 +46,9 @@ def is_sorted(arr):
 
 if __name__ == '__main__':
 
-    sort_algos = {'Bubble'    : bubble,
-                  'Selection' : selection,
-                  'Insertion' : insertion}
+    sort_algos = {'Bubble'    : bubble_sort,
+                  'Selection' : selection_sort,
+                  'Insertion' : insertion_sort}
 
     print()
     print(f' Algo      | sorted?')
