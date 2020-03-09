@@ -10,6 +10,7 @@ from random import randint
 from bubble_sort    import bubble_sort
 from selection_sort import selection_sort
 from insertion_sort import insertion_sort
+from heap_sort      import heap_sort
 
 def test_data():
     """ Generates a sample of random numbers
@@ -48,7 +49,8 @@ if __name__ == '__main__':
 
     sort_algos = {'Bubble'    : bubble_sort,
                   'Selection' : selection_sort,
-                  'Insertion' : insertion_sort}
+                  'Insertion' : insertion_sort,
+                  'Heap'      : heap_sort}
 
     print()
     print(f' Algo      | sorted?')
