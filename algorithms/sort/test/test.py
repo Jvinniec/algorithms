@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
     sort_algos = {'Bubble'    : sorter.bubble_sort(),
                   'Selection' : sorter.selection_sort(),
-                  'Insertion' : sorter.insertion_sort,
+                  'Insertion' : sorter.insertion_sort(),
                   'Heap'      : sorter.heap_sort(),
                   'Merge'     : sorter.merge_sort()}
 
