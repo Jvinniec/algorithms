@@ -21,6 +21,15 @@ class merge_sort(sort_algo):
 
     def sort(self, arr):
         """ Python implementation of Merge Sort algorithm
+
+        Parameters
+        ----------
+        arr : array
+            Python list of sortable objects
+
+        Returns
+        -------
+        Sorted Python list
         """
         # Define a return object (will be a sorted array)
         ret = []
