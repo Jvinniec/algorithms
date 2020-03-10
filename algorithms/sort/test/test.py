@@ -1,29 +1,27 @@
 # Make sure the sorting directories are findable
 import os
 import sys
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../')
+import numpy as np
 
 # For generating random lists
 from random import randint
 
-# Import the sorting algorithms
-from bubble_sort    import bubble_sort
-from selection_sort import selection_sort
-from insertion_sort import insertion_sort
-from heap_sort      import heap_sort
+# Import algorithms
+import sort_algo as sorter
 
 def test_data():
-    """ Generates a sample of random numbers
+    """ Generates a sample of random numbers and the expected sorted array
     """
     entries = 100
-    vals = [0] * entries
+    vals = np.zeros(entries)
     for i in range(entries):
         vals[i] = randint(-1000,1000)
 
-    return vals
+    return vals, np.sort(vals)
 
 
-def is_sorted(arr):
+def is_sorted(arr, expected):
     """ Test if array is sorted
     Parameters
     ----------
@@ -36,9 +34,9 @@ def is_sorted(arr):
     is_sorted = True
     
     # Loop over all entries
-    for i in range(len(arr)-1):
-        # Check if value is less than next value
-        if arr[i] > arr[i+1]:
+    for i in range(len(arr)):
+        # Check if value is the expected value
+        if arr[i] != expected[i]:
             is_sorted = False
             break
     
@@ -47,24 +45,25 @@ def is_sorted(arr):
 
 if __name__ == '__main__':
 
-    sort_algos = {'Bubble'    : bubble_sort,
-                  'Selection' : selection_sort,
-                  'Insertion' : insertion_sort,
-                  'Heap'      : heap_sort}
+    sort_algos = {'Bubble'    : sorter.bubble_sort,
+                  'Selection' : sorter.selection_sort,
+                  'Insertion' : sorter.insertion_sort,
+                  'Heap'      : sorter.heap_sort,
+                  'Merge'     : sorter.merge_sort()}
 
     print()
     print(f' Algo      | sorted?')
     print(f'-----------+---------')
 
     # Loop over all algorithms
-    for key,algo in sort_algos.items():
+    for name,algo in sort_algos.items():
         # Generate random unsorted array
-        test_arr = test_data()
+        test_arr, expected_arr = test_data()
         
         # Attemp to sort
         sorted_arr = algo.sort(test_arr)
         
         # Print success/failure
-        print(f' {key:9s} | {is_sorted(sorted_arr)}')
+        print(f' {name:9s} | {is_sorted(sorted_arr,expected_arr)}')
         
     print()
