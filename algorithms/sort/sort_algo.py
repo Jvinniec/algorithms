@@ -3,19 +3,30 @@ class sort_algo:
     """ Base class for sorting algorithms
     """
 
+
     def __init__(self):
         """ Initialize sorting algorithm
         """
         pass
 
+
     def sort(self, arr):
-        """ Sorting algorithm (to be implemented in inheriting classes)
+        """ Python implementation of Sort algorithm
+
+        Parameters
+        ----------
+        arr : array
+            Python list of sortable objects
+
+        Returns
+        -------
+        Sorted Python list
         """
-        pass
+        return arr
 
 
 # Import the sorting algorithms
-from bubble_sort    import bubble_sort
+from bubble_sort.bubble_sort       import bubble_sort
 from selection_sort.selection_sort import selection_sort
 from insertion_sort import insertion_sort
 from merge_sort.merge_sort         import merge_sort
