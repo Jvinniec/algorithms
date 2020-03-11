@@ -41,8 +41,9 @@ class heap_sort(sort_algo):
 
         # Loop through the values
         size = len(arr)
+        ret  = [0] * size
         for i in range(size):
             # Remove the root value and put it into the array
-            arr[size-1-i] = heap_arr.popMax()
+            ret[size-1-i] = heap_arr.popMax()
 
-        return arr
+        return ret

@@ -32,6 +32,7 @@ class bubble_sort(sort_algo):
         """
         # Get an estimate of the length
         len_obj = len(arr)
+        ret = arr.copy()
 
         # Create a temporary storage object
         tmp_obj = None
@@ -39,11 +40,11 @@ class bubble_sort(sort_algo):
         # Loop over all the entries in the list
         for i in range(len_obj-1):
             for j in range(len_obj-i-1):
-                if arr[j] > arr[j+1]:
+                if ret[j] > ret[j+1]:
                     
                     # Swap the values
-                    tmp_obj  = arr[j]
-                    arr[j]   = arr[j+1]
-                    arr[j+1] = tmp_obj
+                    tmp_obj  = ret[j]
+                    ret[j]   = ret[j+1]
+                    ret[j+1] = tmp_obj
 
-        return arr
+        return ret

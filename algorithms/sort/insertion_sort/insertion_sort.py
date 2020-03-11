@@ -30,21 +30,26 @@ class insertion_sort(sort_algo):
         -------
         Sorted Python list
         """
+        # Create copy to be sorted
+        ret = arr.copy()
+
         # Get length of arr
-        len_arr = len(arr)
+        len_arr = len(ret)
 
         # Loop through all entries in the list
         for i in range(1, len_arr):
             # Get value at position we care about
-            val_i = arr[i]
+            val_i = ret[i]
 
             # Loop through the previous values to see where to insert it
             for j in range(i-1,-1, -1):
                 # If current value is larger, swap it
-                if val_i < arr[j]:
-                    arr[j+1] = arr[j]
-                    arr[j]   = val_i
+                if val_i < ret[j]:
+                    ret[j+1] = ret[j]
+                    if j == 0:
+                        ret[0] = val_i
                 else:
+                    ret[j+1] = val_i
                     break
 
-        return arr
+        return ret
