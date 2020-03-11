@@ -11,7 +11,7 @@ from random import randint
 # Import algorithms
 import sort_algo as sorter
 
-def test_data(entries=1000):
+def test_data(entries):
     """ Generates a sample of random numbers and the expected sorted array
     """
     # Create an empty array to be filled
@@ -37,7 +37,8 @@ def run_tests(timed_tests=100, arr_size=1000):
                   'Selection' : sorter.selection_sort(),
                   'Insertion' : sorter.insertion_sort(),
                   'Heap'      : sorter.heap_sort(),
-                  'Merge'     : sorter.merge_sort()}
+                  'Merge'     : sorter.merge_sort(),
+                  'Quick'     : sorter.quick_sort()}
 
     # Print some helpful text to tell us what's going on
     print('TESTING: Sorting algorithms:')
@@ -57,8 +58,9 @@ def run_tests(timed_tests=100, arr_size=1000):
         # If successfull test computation time of sorting algorithm
         time = 0
         if success:
-            time = timeit.timeit('test_arr, expected=test_data(); algo.sort(test_arr)', 
-                                 globals={'algo':algo,'test_data':test_data}, number=timed_tests)
+            time = timeit.timeit('test_arr, expected=test_data(entries=arr_size); algo.sort(test_arr)', 
+                                 globals={'algo':algo,'test_data':test_data,'arr_size':arr_size}, 
+                                 number=timed_tests)
         
         # Print success/failure
         print_status(name, success, time)
