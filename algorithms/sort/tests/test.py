@@ -28,7 +28,7 @@ def print_status(name, success, time):
     print(f' {name:9s} | {str(success):5s}   | {time:1.2e}')
 
 
-def run_tests():
+def run_tests(timed_tests=100, arr_size=1000):
     """ Run tests on all Python sorting algorithm implementations
     """
     # Define the sorting algorithms to test
@@ -48,7 +48,7 @@ def run_tests():
     # Loop over all algorithms
     for name,algo in sort_algos.items():
         # Generate random unsorted array
-        test_arr, expected_arr = test_data()
+        test_arr, expected_arr = test_data(entries=arr_size)
         
         # Try to sort the array
         sorted_arr = algo.sort(test_arr)
@@ -58,7 +58,7 @@ def run_tests():
         time = 0
         if success:
             time = timeit.timeit('test_arr, expected=test_data(); algo.sort(test_arr)', 
-                                 globals={'algo':algo,'test_data':test_data}, number=100)
+                                 globals={'algo':algo,'test_data':test_data}, number=timed_tests)
         
         # Print success/failure
         print_status(name, success, time)
