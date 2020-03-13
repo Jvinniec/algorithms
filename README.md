@@ -1,5 +1,5 @@
 # General Algorithms
-This repository is where I keep examples of various algorithms that I've implemented in various languages. It is
+This repository is where I keep examples of various algorithms that I've implemented in various languages. It is a convenient place to start when attempting to learn a new programming language.
 
 * Data structures
   * [Heap](data_structures/heap_datastruct/) (binary)
