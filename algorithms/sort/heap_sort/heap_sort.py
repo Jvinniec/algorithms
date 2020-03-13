@@ -37,7 +37,7 @@ class heap_sort(sort_algo):
         Sorted Python list
         """
         # Create a heap data structure
-        heap_arr = ds.heap_datastruct(arr)
+        heap_arr = ds.BinaryHeap(arr)
 
         # Loop through the values
         size = len(arr)

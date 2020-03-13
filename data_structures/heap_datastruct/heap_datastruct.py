@@ -1,12 +1,6 @@
 
-import os
-import sys
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../')
 
-# Import the datastruct base class
-from datastruct import datastruct
-
-class heap_datastruct(datastruct):
+class BinaryHeap:
     """
     Implementation of a Binary Heap data structure
     """
@@ -15,7 +9,9 @@ class heap_datastruct(datastruct):
         """
         Initialize Binary Heap data structure
         """
-        super(heap_datastruct, self).__init__()
+        # Initialize the container to store the values
+        self._items = []
+
         # If array is not None add values to this object
         if arr is not None:
             for val in arr:
