@@ -35,7 +35,7 @@ class bubble_sort {
          * @param[in] arr       Array to be sorted
          ********************************************************************/
         template <class T>
-        static std::vector<T> sort(std::vector<T> arr) {
+        std::vector<T> sort(std::vector<T> arr) {
             // Get the size of the vector
             long size = arr.size();
 

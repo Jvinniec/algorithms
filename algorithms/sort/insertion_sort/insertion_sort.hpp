@@ -36,7 +36,7 @@ class insertion_sort {
          * @returns Sorted copy of @p arr
          ********************************************************************/
         template <class T>
-        static std::vector<T> sort(std::vector<T> arr) {
+        std::vector<T> sort(std::vector<T> arr) {
             // Get the size of the vector
             long size = arr.size();
 
@@ -63,5 +63,5 @@ class insertion_sort {
             }
 
             return arr;
-        };
+        }
 };
