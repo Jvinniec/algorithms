@@ -71,3 +71,4 @@ def run_tests(timed_tests=100, arr_size=1000):
 
 if __name__ == '__main__':
     run_tests()
+    exit(0)
