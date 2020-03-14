@@ -6,6 +6,7 @@
 #include "bubble_sort.hpp"
 #include "insertion_sort.hpp"
 #include "merge_sort.hpp"
+#include "selection_sort.hpp"
 
 
 /********************************************************************//**
@@ -97,7 +98,10 @@ void test_sort(void)
     std::cout << " Merge     | " << test_equal(merge, expect) << std::endl;
 
     // TODO: Quick sort
-    // TODO: Selection sort
+    // Selection sort
+    std::vector<int> selection = selection_sort().sort(arr);
+    std::cout << " Selection | " << test_equal(selection, expect) << std::endl;
+
 
     // for (auto& i : arr) std::cout << i << " ";
     // std::cout << std::endl;
