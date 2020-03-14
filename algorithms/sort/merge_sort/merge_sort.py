@@ -45,15 +45,12 @@ class merge_sort(sort_algo):
         size = stop - start
 
         # Handle based on the size
-        if size == 1:
-            # Nothing to do
-            pass
-        elif size == 2:
+        if size == 2:
             if ret[start] > ret[start+1]:
                 tmp = ret[start]
                 ret[start] = ret[start+1]
                 ret[start+1] = tmp
-        else:
+        elif size > 2:
             # Split the array in half and sort
             mid  = start+int(size/2)
             cpy_arr1 = self.sort(ret, start, mid)[start:mid].copy()
