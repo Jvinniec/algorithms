@@ -27,6 +27,7 @@ include_directories (${CMAKE_CURRENT_SOURCE_DIR}/../bubble_sort
                      ${CMAKE_CURRENT_SOURCE_DIR}/../insertion_sort
                      ${CMAKE_CURRENT_SOURCE_DIR}/../merge_sort
                      ${CMAKE_CURRENT_SOURCE_DIR}/../selection_sort
+                     ${CMAKE_CURRENT_SOURCE_DIR}/../quick_sort
                      ${CMAKE_SOURCE_DIR}/data_structures/heap_datastruct)
 
 
