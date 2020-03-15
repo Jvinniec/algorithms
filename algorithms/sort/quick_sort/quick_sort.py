@@ -34,7 +34,7 @@ class quick_sort(sort_algo):
         ret = arr.copy()
 
         # Sort the copy
-        self._sort(ret, 0, len(ret)-1)
+        self._sort(ret, 0, len(ret))
 
         return ret
         
@@ -52,12 +52,12 @@ class quick_sort(sort_algo):
             Index to stop at for sorting
         """
         # Get the length
-        size = stop - start + 1
+        size = stop - start
         
         # Only process if the array is sizeable
         if size > 1:
             left  = start + 1
-            right = stop
+            right = stop - 1
 
             # Cache the pivot value
             pivot = ret[start]
@@ -84,7 +84,7 @@ class quick_sort(sort_algo):
                 ret[right] = pivot
 
             # Sort values on left/right of pivot
-            self._sort(ret, start, right-1)
+            self._sort(ret, start, right)
             self._sort(ret, left, stop)
 
         return
