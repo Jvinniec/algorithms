@@ -19,6 +19,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#ifndef BUBBLE_SORT_HPP
+#define BUBBLE_SORT_HPP
 
 #include <vector>
 
@@ -58,3 +60,5 @@ class bubble_sort {
             return arr;
         };
 };
+
+#endif /* BUBBLE_SORT_HPP */

@@ -19,6 +19,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#ifndef HEAP_DATASTRUCT_HPP
+#define HEAP_DATASTRUCT_HPP
+
 #include <vector>
 #include <string>
 #include <exception>
@@ -227,3 +230,5 @@ class BinaryHeap {
     private:
         std::vector<T> m_items;
 };
+
+#endif /* HEAP_DATASTRUCT_HPP */

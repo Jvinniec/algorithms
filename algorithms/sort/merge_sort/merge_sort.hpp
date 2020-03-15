@@ -19,6 +19,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#ifndef MERGE_SORT_HPP
+#define MERGE_SORT_HPP
 
 #include <vector>
 
@@ -90,3 +92,5 @@ class merge_sort {
             return arr;
         }
 };
+
+#endif /* MERGE_SORT_HPP */

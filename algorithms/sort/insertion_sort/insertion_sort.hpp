@@ -19,6 +19,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#ifndef INSERTION_SORT_HPP
+#define INSERTION_SORT_HPP
 
 #include <vector>
 
@@ -65,3 +67,5 @@ class insertion_sort {
             return arr;
         }
 };
+
+#endif /* INSERTION_SORT_HPP */

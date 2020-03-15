@@ -19,6 +19,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#ifndef HEAP_SORT_HPP
+#define HEAP_SORT_HPP
+
 #include "heap_datastruct.hpp"
 
 class heap_sort {
@@ -42,3 +45,5 @@ class heap_sort {
             return arr;
         }
 };
+
+#endif /* HEAP_SORT_HPP */
