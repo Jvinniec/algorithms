@@ -43,6 +43,14 @@ class merge_sort {
         }
 
     private:
+        /*****************************************************************//*
+         * Implements the Merge Sort sorting algorithm recursively.
+         * 
+         * @param[in] arr       Array to be sorted (inplace)
+         * @param[in] start     Starting index
+         * @param[in] stop      Stoping index
+         * @returns @p arr with indexes between [start,stop) sorted
+         ********************************************************************/
         template <class T>
         std::vector<T> recursive_sort(std::vector<T>& arr,
                                       const long& start,
