@@ -61,7 +61,7 @@ class BinaryHeap:
         Index of the first child node, or -1 if no child exists
         """
         # Initialize return index
-        child_indx = NotImplementedError
+        child_indx = 0
 
         # Compute child index if indx is valid
         if (indx >= 0) and (indx < len(self._items)):
@@ -133,8 +133,8 @@ class BinaryHeap:
 
     def popAt(self, indx):
         """
-        Remove the largest value in the Heap and return it. This requires
-        restructuring the Heap once the root is removed.
+        Remove the a value at a given index in the Heap and return it. This
+        requires restructuring the Heap once the value is removed.
 
         Parameters
         ----------
@@ -143,7 +143,7 @@ class BinaryHeap:
 
         Returns
         -------
-        Largest value in the Heap
+        Initial value at `indx` before removing it 
         """
         # Raise exception if index is out of bounds
         if indx >= len(self._items):
