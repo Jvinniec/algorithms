@@ -14,6 +14,9 @@ This repository is where I keep examples of various algorithms that I've impleme
     * [quick sort](algorithms/sort/quick_sort/)
   * [pi](algorithms/pi/): Computing $\pi$ from random numbers.
 
+The repository is structured according to algorithm and all implementations of a given algorithm are placed in the same directory. However, it should be noted that not all algorithms will be implemented in more than one programming language.
+
 ## A note on programming methodology
 In order for readability and ease of processing the following rules for each method are used:
 * Only one return statement in each method (at the end)
+* Keep line length under 80 characters including indentation (for readability)
