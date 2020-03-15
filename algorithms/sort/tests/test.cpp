@@ -1,12 +1,45 @@
+/***************************************************************************
+ *  test.cpp: JVC Algorithms                                               *
+ * ----------------------------------------------------------------------- *
+ *  Copyright © 2020 JCardenzana                                           *
+ * ----------------------------------------------------------------------- *
+ *                                                                         *
+ *  This program is free software: you can redistribute it and/or modify   *
+ *  it under the terms of the GNU General Public License as published by   *
+ *  the Free Software Foundation, either version 3 of the License, or      *
+ *  (at your option) any later version.                                    *
+ *                                                                         *
+ *  This program is distributed in the hope that it will be useful,        *
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+ *  GNU General Public License for more details.                           *
+ *                                                                         *
+ *  You should have received a copy of the GNU General Public License      *
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.  *
+ *                                                                         *
+ ***************************************************************************/
+
+/* @file test.cpp
+ * Runs tests on c++ sorting algorithms
+ * 
+ * Compile and run with the following command:
+ * ```
+ * clang++ -I./ -I../bubble_sort -I../insertion_sort -I../merge_sort test.cpp \
+ *         -I../heap_sort -I../selection_sort -I../../../data_structures/heap_datastruct \
+ *         -I../quick_sort -o test_cpp && ./test_cpp
+ * ```
+ */
 
 #include <iostream>
 #include <random>
 #include <algorithm>
 
 #include "bubble_sort.hpp"
+#include "heap_sort.hpp"
 #include "insertion_sort.hpp"
 #include "merge_sort.hpp"
 #include "selection_sort.hpp"
+#include "quick_sort.hpp"
 
 
 /********************************************************************//**
@@ -66,7 +99,7 @@ bool test_equal(const std::vector<int> &arr1,
 /********************************************************************//**
  * Test C++ implementations of various sorthing algorithms
  ************************************************************************/
-void test_sort(void) 
+bool test_sort(void) 
 {
     // Get the test data
     std::vector<int> arr = test_data(1000);
@@ -75,9 +108,7 @@ void test_sort(void)
     std::vector<int> expect = arr;
     std::sort(expect.begin(), expect.end());
 
-    // Cache the success
-    bool test_success = true;
-
+    // Print out status as we go
     std::cout << "TESTING: Sorting algorithms:" << std::endl;
     std::cout << "-----------+---------+-----------" << std::endl;
     std::cout << " Algo      | sorted? | time (sec)" << std::endl;
@@ -85,33 +116,42 @@ void test_sort(void)
 
     // Bubble sort
     std::vector<int> bubble = bubble_sort().sort(arr);
-    std::cout << " Bubble    | " << test_equal(bubble, expect) << std::endl;
+    bool bubble_success = test_equal(bubble, expect);
+    std::cout << " Bubble    | " << bubble_success << std::endl;
 
-    // TODO: Heap sort
+    // Heap sort
+    std::vector<int> heap = heap_sort().sort(arr);
+    bool heap_success = test_equal(heap, expect);
+    std::cout << " Heap      | " << heap_success << std::endl;
 
     // Insertion sort
     std::vector<int> insertion = insertion_sort().sort(arr);
-    std::cout << " Insertion | " << test_equal(insertion, expect) << std::endl;
+    bool insertion_success = test_equal(insertion, expect);
+    std::cout << " Insertion | " << insertion_success << std::endl;
 
     // Merge sort
     std::vector<int> merge = merge_sort().sort(arr);
-    std::cout << " Merge     | " << test_equal(merge, expect) << std::endl;
+    bool merge_success = test_equal(merge, expect);
+    std::cout << " Merge     | " << merge_success << std::endl;
 
-    // TODO: Quick sort
+    // Quick sort
+    std::vector<int> quick = quick_sort().sort(arr);
+    bool quick_success = test_equal(quick, expect);
+    std::cout << " Quick     | " << quick_success << std::endl;
+
     // Selection sort
     std::vector<int> selection = selection_sort().sort(arr);
-    std::cout << " Selection | " << test_equal(selection, expect) << std::endl;
+    bool selection_success = test_equal(selection, expect);
+    std::cout << " Selection | " << selection_success << std::endl;
 
+    // Get the overall status
+    bool success = true;
+    if (!bubble_success || !heap_success || !insertion_success ||
+        !merge_success || !quick_success || !selection_success) {
+        success = false;
+    }
 
-    // for (auto& i : arr) std::cout << i << " ";
-    // std::cout << std::endl;
-    // for (auto& i : merge) std::cout << i << " ";
-    // std::cout << std::endl;
-    // for (auto& i : expect) std::cout << i << " ";
-    // std::cout << std::endl;
-    
-
-    return ;
+    return success;
 }
 
 
@@ -120,10 +160,7 @@ void test_sort(void)
  ************************************************************************/
 int main() {
     // Instigate the testing procedure
-    bool success = true;
-    
-    // Try to test sorting algorithm
-    test_sort();
+    bool success = test_sort();
 
-    return 0;
+    return int(!success);
 }

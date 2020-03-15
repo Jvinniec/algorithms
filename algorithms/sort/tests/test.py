@@ -31,6 +31,9 @@ def print_status(name, success, time):
 def run_tests(timed_tests=100, arr_size=1000):
     """ Run tests on all Python sorting algorithm implementations
     """
+    # Keep track of overall success
+    overall_success = True
+
     # Define the sorting algorithms to test
     sort_algos = {'Numpy'     : np,
                   'Bubble'    : sorter.bubble_sort(),
@@ -61,6 +64,8 @@ def run_tests(timed_tests=100, arr_size=1000):
             time = timeit.timeit('test_arr, expected=test_data(entries=arr_size); algo.sort(test_arr)', 
                                  globals={'algo':algo,'test_data':test_data,'arr_size':arr_size}, 
                                  number=timed_tests)
+        else:
+            overall_success = False
         
         # Print success/failure
         print_status(name, success, time)
@@ -68,7 +73,10 @@ def run_tests(timed_tests=100, arr_size=1000):
     # Print a new line character
     print()
 
+    return overall_success
+
 
 if __name__ == '__main__':
-    run_tests()
-    exit(0)
+    passes = run_tests()
+    exit(not passes)
+    
